@@ -8,7 +8,7 @@
 /* Header styling */
 header {
     display: flex;
-    align-items: center;
+    align-items: center-top;
     justify-content: space-between;
     padding: 15px 30px;
     background-color: #333; /* Dark background for contrast */
