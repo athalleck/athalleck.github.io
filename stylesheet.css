@@ -41,7 +41,7 @@ nav ul li a:hover {
 body {
   background-image: url('website background 1.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center bottom;
   background-repeat: no-repeat;
  background-attachment: fixed;
 }
