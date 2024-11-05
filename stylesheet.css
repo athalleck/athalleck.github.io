@@ -38,3 +38,9 @@ nav ul li a {
 nav ul li a:hover {
     color: #f0a500; /* Highlight color on hover */
 }
+body {
+  background-image: url('website background 1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
