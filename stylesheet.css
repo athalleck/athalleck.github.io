@@ -39,6 +39,7 @@ nav ul li a:hover {
     color: #f0a500; /* Highlight color on hover */
 }
 body {
+  padding-top: 150px;
   background-image: url('website background 1.jpg');
   background-size: cover;
   background-position: center top;
