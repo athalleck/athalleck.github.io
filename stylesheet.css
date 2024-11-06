@@ -131,6 +131,7 @@ body {
 
 /* Sidebar styling */
 .sidebar {
+    font-family: 'Shadows Into Light', cursive;
     position: sticky;
     top: 0;
     width: 20%;
@@ -144,6 +145,7 @@ body {
 }
 
 .sidebar button {
+    font-family: 'Shadows Into Light', cursive;
     margin: 10px 0;
     padding: 10px 20px;
     font-size: 1.2em;
