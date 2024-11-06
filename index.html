@@ -32,7 +32,18 @@
     
    <!-- Work Section -->
 <section id="work" class="content-section">
-    <h2>My Work</h2>
+    <div class="sidebar">
+        <button onclick="scrollToSection('digital')">Digital</button>
+        <button onclick="scrollToSection('physical')">Physical</button>
+        <button onclick="scrollToSection('generative')">Generative</button>
+        <button onclick="scrollToSection('animation')">Animation</button>
+    </div>
+    <div class="gallery">
+        <div id="digital" class="gallery-item" onclick="goToArtwork('digital')">Digital</div>
+        <div id="physical" class="gallery-item" onclick="goToArtwork('physical')">Physical</div>
+        <div id="generative" class="gallery-item" onclick="goToArtwork('generative')">Generative</div>
+        <div id="animation" class="gallery-item" onclick="goToArtwork('animation')">Animation</div>
+    </div>
 </section>
     
     <!-- About Section -->
@@ -42,20 +53,31 @@
         
         <p>Experimentation is at the core of my practice, as I constantly seek new ways to transform my animations into something unexpected. I embrace ambiguity and exaggerate absurdity, combining the generative, the digital, and the physical art. </p>
 
-        <p>While there is usually some underlying goal for the code, there is no direct need to reach that goal. I hope to discover unexpected behaviors or adapt my code to do unpredictable things, where small changes to the code can create significant visual diversity. My process is continuous, exploratory, and never complete. </p>
+<p>While there is usually some underlying goal for the code, there is no direct need to reach that goal. I hope to discover unexpected behaviors or adapt my code to do unpredictable things, where small changes to the code can create significant visual diversity. My process is continuous, exploratory, and never complete. </p>
 
-        <p>I include chance elements to guide my art, infusing it with unpredictability. I will never get the same outcome twice. This approach leads to an ongoing series of discoveries, both for myself and for the audience.</p>
+<p>I include chance elements to guide my art, infusing it with unpredictability. I will never get the same outcome twice. This approach leads to an ongoing series of discoveries, both for myself and for the audience.</p>
 
-        <p>As an animator, my ultimate goal is to create work that challenges the boundaries of realism and surrealism. I strive to be surprising and thought-provoking, showing how generative art can interact and reflect the world around us. 
-         </p></h3>
+<p>As an animator, my ultimate goal is to create work that challenges the boundaries of realism and surrealism. I strive to be surprising and thought-provoking, showing how generative art can interact and reflect the world around us. 
+ </p></h3>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="content-section">
         <h2>Hiya!</h2>
         <h3>Feel free to reach out :) </h3>
+        
         <h4> Email: <a href="mailto:your-email@example.com">athalleck@knox.edu</a></h4>
     </section>
+    
+    <script>
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function goToArtwork(id) {
+        window.location.href = `/artworks/${id}`;
+    }
+</script>
 
 </body>
 </html>
