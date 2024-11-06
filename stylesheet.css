@@ -84,5 +84,6 @@ header nav ul li a:hover {
 /* Ensure body background doesn’t interfere */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Shadows Into Light', cursive;
+
 }
