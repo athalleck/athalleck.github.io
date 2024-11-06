@@ -27,7 +27,8 @@ header {
     color: #fff;
     display: flex;
     justify-content: space-between; 
-    align-items: center; /* Center the navigation */
+    align-items: center;
+    /* Center the navigation */
 }
 
 /* Navigation styling */
@@ -55,7 +56,6 @@ header nav ul li a:hover {
     background-color: #555; /* Optional hover effect */
     border-radius: 5px;
 }
-
 /* Add spacing to the top of the first section so content isn't hidden behind header */
 #home {
     padding-top: 60px; /* Adjust based on header height */
@@ -64,6 +64,21 @@ header nav ul li a:hover {
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative; 
+}
+
+#home h1{
+   position: absolute; 
+    top: 0; 
+    left: 0; 
+    margin: 100px 50px;
+}
+
+#home p{
+   position: absolute; 
+    top: 0; 
+    left: 0; 
+    margin: 130px 90px;
 }
 
 /* Ensure body background doesn’t interfere */
