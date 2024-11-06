@@ -1,46 +1,30 @@
+
 /* Set smooth scrolling for the page */
 html {
     scroll-behavior: smooth;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Ensure each section takes up the full viewport height */
+.content-section {
+    height: 100vh; /* Full viewport height */
+    padding: 40px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; /* Optional, customize per section if desired */
+    text-align: center;
 }
 
 /* Header styling */
 header {
-    display: flex;
-    align-items: center-top;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #333;
     padding: 15px 30px;
-    background-color: #333; /* Dark background for contrast */
     color: #fff;
-}
-
-/* Logo styling */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Navigation menu styling */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px; /* Space between items */
-}
-
-/* Navigation links styling */
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-nav ul li a:hover {
-    color: #f0a500; /* Highlight color on hover */
 }
 
 /* Add spacing to the top of the first section so content isn't hidden behind header */
