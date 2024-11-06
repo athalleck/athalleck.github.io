@@ -128,3 +128,56 @@ body {
     font-family: 'Shadows Into Light', cursive;
 
 }
+
+/* Sidebar styling */
+.sidebar {
+    position: sticky;
+    top: 0;
+    width: 20%;
+    padding: 20px;
+    background: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sidebar button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Gallery styling */
+.gallery {
+    width: 80%;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+#digital { background: #333; }
+#physical { background: #555; }
+#generative { background: #777; }
+#animation { background: #999; }
+
