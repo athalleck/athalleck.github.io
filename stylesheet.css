@@ -108,6 +108,10 @@ header nav ul li a:hover {
   position: relative;
 }
 
+#about h3{
+  font-size: 25px;
+}
+
 #contact {
   background-size: cover;
   background-position: center bottom;
