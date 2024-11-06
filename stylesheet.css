@@ -1,157 +1,43 @@
-/* Reset basic styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Header styling */
-header {
-    display: flex;
-    align-items: center-top;
-    justify-content: space-between;
-    padding: 15px 30px;
-    background-color: #333; /* Dark background for contrast */
-    color: #fff;
-}
-
-/* Logo styling */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Navigation menu styling */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px; /* Space between items */
-}
-
-/* Navigation links styling */
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-nav ul li a:hover {
-    color: #f0a500; /* Highlight color on hover */
-}
-body {
-  background-image: url('website background 1.jpg');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
- background-attachment: fixed;
-}
-
-#home {
-    text-align: center;
-}
-
-.home-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.home-text p {
-    font-size: 1.2em;
-}
-
-.home-text .links a {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    border: 2px solid #333;
-    color: #333;
-    text-decoration: none;
-}
-
-.work-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.work-gallery img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-#about, #contact {
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-    header nav ul {
-        flex-direction: column;
-    }
-
-    .home-text h1 {
-        font-size: 2em;
-    }
-
-    .home-text p {
-        font-size: 1em;
-    }
-
-    .work-gallery img {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-.filter-buttons {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.filter-buttons button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-}
-
-.filter-buttons button.active {
-    background-color: #666;
-}
-
-.work-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.work-item {
-    width: 200px;
-    transition: 0.3s;
-}
-
-.work-item img {
-    width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-}
-
-.work-item.hide {
-    display: none;
-}
-
-.content-section {
-    height: 100vh; /* Full viewport height */
-    padding: 40px;
-    color: #333; /* Customize color as needed */
-    text-align: center;
-    background-color: #f9f9f9; /* Set a background color for each section if desired */
-}
-
+/* Set smooth scrolling for the page */
 html {
     scroll-behavior: smooth;
 }
 
+/* Ensure each section takes up the full viewport height */
+.content-section {
+    height: 100vh; /* Full viewport height */
+    padding: 40px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; /* Optional, customize per section if desired */
+    text-align: center;
+}
+
+/* Header styling */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #333;
+    padding: 15px 30px;
+    color: #fff;
+}
+
+/* Add spacing to the top of the first section so content isn't hidden behind header */
+#home {
+    padding-top: 60px; /* Adjust based on header height */
+    background-image: url('website background 1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Ensure body background doesn’t interfere */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
