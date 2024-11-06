@@ -164,7 +164,7 @@ body {
 }
 
 .gallery-item {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 2; 
     width: 100%;
     max-width: 500px;
     display: flex;
