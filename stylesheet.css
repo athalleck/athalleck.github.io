@@ -69,16 +69,18 @@ header nav ul li a:hover {
 
 #home h1{
    position: absolute; 
+   font-size: 35px;
     top: 0; 
     left: 0; 
-    margin: 100px 50px;
+    margin: 140px 150px;
 }
 
 #home p{
    position: absolute; 
+    font-size: 25px;
     top: 0; 
     left: 0; 
-    margin: 130px 90px;
+    margin: 180px 200px;
 }
 
 #about {
