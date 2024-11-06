@@ -1,204 +1,209 @@
-
 /* Set smooth scrolling for the page */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Ensure each section takes up the full viewport height */
 .content-section {
-    padding: 40px;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f9f9f9; /* Optional, customize per section if desired */
-    text-align: center;
+  padding: 40px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* Optional, customize per section if desired */
+  text-align: center;
 }
 
 #home {
-    height: 100vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
 }
 
 #about {
-    height: 80vh; /* 80% of viewport height */
+  height: 80vh; /* 80% of viewport height */
 }
 
 #gallery {
-    height: auto; /* Adjust height based on content */
-    padding: 60px 20px; /* Extra padding to separate gallery content */
+  height: auto; /* Adjust height based on content */
+  padding: 60px 20px; /* Extra padding to separate gallery content */
 }
 
 #contact {
-    height: 30vh; /* Smaller section for contact */
-    background-color: #333;
-    color: #fff;
+  height: 30vh; /* Smaller section for contact */
+  background-color: #333;
+  color: #fff;
 }
 
 /* Header styling */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #333;
-    padding: 15px 30px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    /* Center the navigation */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #333;
+  padding: 15px 30px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Center the navigation */
 }
 
 /* Navigation styling */
 header nav ul {
-    list-style: none; /* Remove bullet points */
-    display: flex; /* Display in a horizontal line */
-    gap: 20px; /* Add space between items */
-    margin: 0;
-    padding: 0;
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Display in a horizontal line */
+  gap: 20px; /* Add space between items */
+  margin: 0;
+  padding: 0;
 }
 
 header nav ul li {
-    display: inline; /* Ensure items stay in a row */
+  display: inline; /* Ensure items stay in a row */
 }
 
 header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    margin-right: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: 30px;
 }
 
 header nav ul li a:hover {
-    background-color: #555; /* Optional hover effect */
-    border-radius: 5px;
+  background-color: #555; /* Optional hover effect */
+  border-radius: 5px;
 }
 /* Add spacing to the top of the first section so content isn't hidden behind header */
 #home {
-    padding-top: 60px; /* Adjust based on header height */
-    background-image: url('website background 1.jpg');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative; 
+  padding-top: 60px; /* Adjust based on header height */
+  background-image: url("website background 1.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
 
-#home h1{
-   position: absolute; 
-   font-size: 35px;
-    top: 0; 
-    left: 0; 
-    margin: 140px 150px;
+#home h1 {
+  position: absolute;
+  font-size: 35px;
+  top: 0;
+  left: 0;
+  margin: 140px 150px;
 }
 
-#home p{
-   position: absolute; 
-    font-size: 25px;
-    top: 0; 
-    left: 0; 
-    margin: 180px 200px;
+#home p {
+  position: absolute;
+  font-size: 25px;
+  top: 0;
+  left: 0;
+  margin: 180px 200px;
 }
 
 #about {
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative; 
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
 
 #contact {
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative; 
-    background-color: #333;
-    color: #fff;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  background-color: #333;
+  color: #fff;
 }
 
-#contact h2{
-   position: absolute; 
-    top: 0; 
-    left: 0; 
-    margin: 100px 50px;
+#contact h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 100px 50px;
 }
 
-#contact h3{
-   position: absolute; 
-    top: 0; 
-    left: 0; 
-    margin: 100px 300px;
+#contact h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 100px 300px;
 }
 
-#contact h4{
-   position: absolute; 
-    top: 0; 
-    left: 0; 
-    margin: 100px 600px;
+#contact h4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 100px 600px;
 }
 
 /* Ensure body background doesn’t interfere */
 body {
-    margin: 0;
-    font-family: 'Shadows Into Light', cursive;
-
+  margin: 0;
+  font-family: "Shadows Into Light", cursive;
 }
 
 /* Sidebar styling */
 .sidebar {
-    font-family: 'Shadows Into Light', cursive;
-    position: sticky;
-    top: 0;
-    width: 20%;
-    padding: 20px;
-    background: #f4f4f4;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  font-family: "Shadows Into Light", cursive;
+  position: sticky;
+  top: 0;
+  width: 20%;
+  padding: 20px;
+  background: #f4f4f4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .sidebar button {
-    margin: 10px 0;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 /* Gallery styling */
 .gallery {
-    width: 80%;
-    padding: 20px;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
+  width: 80%;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .gallery-item {
-    aspect-ratio: 3 / 2; 
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
 
-#digital { background: #333; }
-#physical { background: #555; }
-#generative { background: #777; }
-#animation { background: #999; }
-
+#digital {
+  background: #333;
+}
+#physical {
+  background: #555;
+}
+#generative {
+  background: #777;
+}
+#animation {
+  background: #999;
+}
