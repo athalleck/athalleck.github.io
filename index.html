@@ -33,18 +33,37 @@
             </div>
         </div>
     </section>
-
-    <!-- Work Section -->
-    <section id="work" class="content-section">
-        <h2>My Work</h2>
-        <div class="work-gallery">
-            <!-- Add your artwork thumbnails here -->
-            <img src="artwork1.jpg" alt="Artwork 1">
-            <img src="artwork2.jpg" alt="Artwork 2">
-            <img src="artwork3.jpg" alt="Artwork 3">
+    
+   <!-- Work Section -->
+<section id="work" class="content-section">
+    <h2>My Work</h2>
+    <!-- Category Filters -->
+    <div class="filter-buttons">
+        <button onclick="filterSelection('all')" class="active">All</button>
+        <button onclick="filterSelection('generative')">Generative Art</button>
+        <button onclick="filterSelection('painting')">Painting</button>
+        <button onclick="filterSelection('digital')">Digital Work</button>
+        <button onclick="filterSelection('animation')">Animations</button>
+    </div>
+    
+    <!-- Artwork Gallery -->
+    <div class="work-gallery">
+        <div class="work-item generative">
+            <a href="generative1.html"><img src="path/to/generative1.jpg" alt="Generative Art 1"></a>
         </div>
-    </section>
-
+        <div class="work-item painting">
+            <a href="painting1.html"><img src="path/to/painting1.jpg" alt="Painting 1"></a>
+        </div>
+        <div class="work-item digital">
+            <a href="digital1.html"><img src="path/to/digital1.jpg" alt="Digital Work 1"></a>
+        </div>
+        <div class="work-item animation">
+            <a href="animation1.html"><img src="path/to/animation1.jpg" alt="Animation 1"></a>
+        </div>
+        <!-- Add more artwork items with the appropriate class -->
+    </div>
+</section>
+    
     <!-- About Section -->
     <section id="about" class="content-section">
         <h2>About Me</h2>
