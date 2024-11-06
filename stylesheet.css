@@ -28,7 +28,7 @@ html {
 }
 
 #contact {
-  height: 30vh; /* Smaller section for contact */
+  height: vh; /* Smaller section for contact */
   background-color: #333;
   color: #fff;
 }
@@ -122,21 +122,21 @@ header nav ul li a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 100px 50px;
+  margin: 10px 50px;
 }
 
 #contact h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 100px 300px;
+  margin: 10px 300px;
 }
 
 #contact h4 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 100px 600px;
+  margin: 10px 600px;
 }
 
 /* Ensure body background doesn’t interfere */
