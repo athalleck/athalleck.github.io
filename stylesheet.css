@@ -81,6 +81,45 @@ header nav ul li a:hover {
     margin: 130px 90px;
 }
 
+#about {
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; 
+}
+
+#contact {
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; 
+    background-color: #333;
+    color: #fff;
+}
+
+#contact h2{
+   position: absolute; 
+    top: 0; 
+    left: 0; 
+    margin: 100px 50px;
+}
+
+#contact h3{
+   position: absolute; 
+    top: 0; 
+    left: 0; 
+    margin: 100px 300px;
+}
+
+#contact h4{
+   position: absolute; 
+    top: 0; 
+    left: 0; 
+    margin: 100px 600px;
+}
+
 /* Ensure body background doesn’t interfere */
 body {
     margin: 0;
