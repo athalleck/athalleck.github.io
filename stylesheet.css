@@ -142,3 +142,16 @@ body {
 .work-item.hide {
     display: none;
 }
+
+.content-section {
+    height: 100vh; /* Full viewport height */
+    padding: 40px;
+    color: #333; /* Customize color as needed */
+    text-align: center;
+    background-color: #f9f9f9; /* Set a background color for each section if desired */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
