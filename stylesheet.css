@@ -19,7 +19,9 @@ html {
 }
 
 #about {
-  height: 70vh; /* 80% of viewport height */
+  height: 70vh;
+  background-image: url("bg 2.jpg");
+/* 80% of viewport height */
 }
 
 #gallery {
