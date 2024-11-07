@@ -30,7 +30,7 @@ html {
 }
 
 #gallery {
-  height: auto; /* Adjust height based on content */
+  height: 120vh; /* Adjust height based on content */
   padding: 60px 20px; /* Extra padding to separate gallery content */
 }
 
