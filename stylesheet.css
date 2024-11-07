@@ -128,7 +128,7 @@ header nav ul li a:hover {
 
 #about p:nth-last-of-type(1),
 #about p:nth-last-of-type(2) {
-    margin: 20px 50px 0px 50px; /* Smaller margin values as needed */
+    margin: 20px 50px 0px 150px; /* Smaller margin values as needed */
 }
 
 #contact {
