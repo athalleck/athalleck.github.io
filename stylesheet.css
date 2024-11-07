@@ -19,7 +19,7 @@ html {
 }
 
 #about {
-  height: 50vh; /* 80% of viewport height */
+  height: vh; /* 80% of viewport height */
 }
 
 #gallery {
@@ -28,7 +28,7 @@ html {
 }
 
 #contact {
-  height: vh; /* Smaller section for contact */
+  height: 2vh; /* Smaller section for contact */
   background-color: #333;
   color: #fff;
 }
@@ -110,6 +110,10 @@ header nav ul li a:hover {
 
 #about h3{
   font-size: 25px;
+}
+
+#about h4{
+  font-size: 15px;
 }
 
 #contact {
