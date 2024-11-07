@@ -19,7 +19,7 @@ html {
 }
 
 #about {
-  height: 70vh;
+  height: 80vh;
   background-image: url("bg 2.jpg");
   background-size: cover;
   background-position: center bottom;
@@ -118,7 +118,7 @@ header nav ul li a:hover {
 #about h3{
   font-size: 25px;
   position: absolute;
-  top: 0px;
+  top: 20px;
   left: 20px;
 }
 
