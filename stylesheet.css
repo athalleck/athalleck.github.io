@@ -21,6 +21,11 @@ html {
 #about {
   height: 70vh;
   background-image: url("bg 2.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 /* 80% of viewport height */
 }
 
@@ -119,6 +124,9 @@ header nav ul li a:hover {
 
 #about h4{
   font-size: 15px;
+  position: absolute;
+  top: 0px;
+  left: 20px;
 }
 
 #contact {
