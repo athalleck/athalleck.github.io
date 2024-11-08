@@ -102,8 +102,8 @@ header nav ul li a:hover {
 }
 
 #about {
-  background-size: cover;
   background-image: url("bg 2.jpg");
+  background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
