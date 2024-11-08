@@ -23,7 +23,7 @@ html {
 /* 80% of viewport height */
 }
 
-#gallery {
+#work {
   height: 120vh; /* Adjust height based on content */
   padding: 60px 20px; /* Extra padding to separate gallery content */
 }
