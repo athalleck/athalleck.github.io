@@ -24,7 +24,7 @@ html {
 }
 
 #work {
-  height: 120vh; /* Adjust height based on content */
+  height: auto; /* Adjust height based on content */
   padding: 60px 20px; /* Extra padding to separate gallery content */
 }
 
