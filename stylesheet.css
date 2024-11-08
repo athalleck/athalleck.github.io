@@ -207,6 +207,8 @@ body {
 .gallery-item {
   aspect-ratio: 3 / 2;
   width: 100%;
+  max-width: 800px; /* Set the maximum width */
+  max-height: 600px; 
   display: flex;
   align-items: center;
   justify-content: center;
