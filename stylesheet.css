@@ -126,7 +126,7 @@ header nav ul li a:hover {
   margin-left: 50px;
 }
 
-#about p:nth-last-of-type(1),
+/*#about p:nth-last-of-type(1),
 #about p:nth-last-of-type(2) {
     margin: 20px 250px 0px 0px; /* Smaller margin values as needed */
 }
