@@ -10,6 +10,7 @@ body {
 
 /* Title styling */
 .gallery-title {
+    font-family: "Shadows Into Light", cursive;
     font-size: 2.5em;
     font-weight: bold;
     margin: 20px 0;
@@ -39,15 +40,18 @@ body {
 
 /* Description styling */
 .description {
+    font-family: "Shadows Into Light", cursive;
     max-width: 800px;
 }
 
 .description h2 {
+    font-family: "Shadows Into Light", cursive;
     font-size: 1.5em;
     margin: 0 0 10px;
 }
 
 .description p {
+    font-family: "Shadows Into Light", cursive;
     margin: 0;
 }
 
