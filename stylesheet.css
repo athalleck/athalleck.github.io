@@ -221,9 +221,6 @@ body {
   cursor: pointer;
 }
 
-#digital {
-  background: #333;
-}
 #physical {
   background: #555;
 }
@@ -232,4 +229,7 @@ body {
 }
 #animation {
   background: #999;
+}
+#digital {
+  background: #333;
 }
