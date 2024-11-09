@@ -172,11 +172,11 @@ body {
 .sidebar {
   font-family: "Shadows Into Light", cursive;
   position: sticky;
-  top: 0;
+  top: ;
   width: 20%;
   padding: 20px;
   background: #f4f4f4;
-  height: 100vh;
+  height: 180vh;
   display: flex;
   flex-direction: column;
   justify-content: ;
