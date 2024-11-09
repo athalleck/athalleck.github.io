@@ -34,7 +34,7 @@ body {
 
 /* Image styling */
 .artwork img {
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 10px;
     border: 1px solid #000;
     margin-left: 20px;
