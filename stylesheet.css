@@ -198,10 +198,11 @@ body {
 /* Gallery styling */
 .gallery {
   width: 80%;
+  margin: 0 auto;
   padding: 20px;
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 40px;
 }
 
 .gallery-item {
