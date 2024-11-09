@@ -222,14 +222,19 @@ body {
 }
 
 #physical {
-  background: #555;
+  background-image: url("path/to/your-image.jpg"); 
+  background-size: cover; 
+  background-position: center;
 }
 #generative {
-  background: #777;
-}
+ background-image: url("path/to/your-image.jpg"); 
+ background-size: cover; 
+ background-position: center;}
 #animation {
-  background: #999;
-}
+ background-image: url("path/to/your-image.jpg"); 
+ background-size: cover; 
+ background-position: center;}
 #digital {
-  background: #333;
-}
+ background-image: url("path/to/your-image.jpg"); 
+ background-size: cover; 
+ background-position: center;}
