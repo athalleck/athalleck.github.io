@@ -6,7 +6,6 @@
     <title>ATH Artist Portfolio</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
@@ -15,75 +14,81 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#work">Work</a></li>
+            <li><a href="#featured-works">Work</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
-    
-     <!-- Home Section -->
-    <section id="home" class="content-section">
-        <div class="home-text">
-            <h1>ALEX HALLECK</h1>
-            <p>PORTFOLIO</p>
-        </div>
-    </section>
-    
-   <!-- Work Section -->
-<section id="work" class="content-section">
-    <div class="sidebar">
-        <button onclick="goToArtwork('digital')">Digital</button>
-        <button onclick="goToArtwork('generative')">Generative</button>
-        <button onclick="goToArtwork('animation')">Animation</button>
-        <button onclick="goToArtwork('physical')">Physical</button>
 
-    </div>
-    <div class="gallery">
-        <div id="digital" class="gallery-item" onclick="goToArtwork('digital')">Digital</div>
-        <div id="generative" class="gallery-item" onclick="goToArtwork('generative')">Generative</div>
-        <div id="animation" class="gallery-item" onclick="goToArtwork('animation')">Animation</div>
-        <div id="physical" class="gallery-item" onclick="goToArtwork('physical')">Physical</div>
-
+<!-- Home Section -->
+<section id="home" class="content-section">
+    <div class="home-text">
+        <h1>ALEX HALLECK</h1>
+        <p>PORTFOLIO</p>
     </div>
 </section>
-    
-    <!-- About Section -->
-    <section id="about" class="content-section">
-        <h3>Artist Statement: </h3>
-       <h4> <p> In my exploration of generative art and animation, I aim to disorient and disrupt the viewer from traditional storytelling. Through experimentation, I move my work beyond the conventions of linear narrative. Playing with the world of animation through generative art, I use code as the medium for my art. 
- </p>
-        
-        <p>Experimentation is at the core of my practice, as I constantly seek new ways to transform my animations into something unexpected. I embrace ambiguity and exaggerate absurdity, combining the generative, the digital, and the physical art. </p>
 
-<p>When I begin writing the code for my art, I go into it with a clear idea of what I want the computer to produce, but once I get further into the process, there is no direct need to reach that goal. I want to discover unexpected behaviors or adapt my code to do unpredictable things, where small changes to the code can create significant visual diversity within the art. My process is continuous, exploratory, and never complete. 
-</p>
+<!-- Featured Works Section (updated) -->
+<section id="featured-works" class="content-section">
+    <div id="fun-bar" class="fun-bar">
+        <h2>Featured Works</h2>
+    </div>
 
-<p>I include chance elements to guide my art, infusing it with unpredictability. I will never get the same outcome twice. This approach leads to an ongoing series of discoveries, both for myself and for the audience.
-</p>
+    <!-- Top big works (3 items) -->
+    <div class="featured-large-grid">
+        <div class="featured-large-item" onclick="location.href='/artworks/generative-piece-01.html'">
+            <img src="/images/generative-piece-01-thumb.jpg" alt="Generative Piece 01">
+            <p>Generative Dreamscape 1</p>
+        </div>
+        <div class="featured-large-item" onclick="location.href='/artworks/animation-piece-01.html'">
+            <img src="/images/animation-piece-01-thumb.jpg" alt="Animation Piece 01">
+            <p>Animation Loop 1</p>
+        </div>
+        <div class="featured-large-item" onclick="location.href='/artworks/another-piece.html'">
+            <img src="/images/another-piece-thumb.jpg" alt="Another Piece">
+            <p>Another Featured Work</p>
+        </div>
+    </div>
 
-<p>As an animator, my ultimate goal is to create work that challenges the boundaries of realism and surrealism. I strive to be surprising and thought-provoking, forcing the viewer to find their own meanings and connections to the work and showing how generative art can interact and reflect the world around us.
+    <!-- 2 rows of 4 smaller works -->
+    <div class="featured-grid">
+        <div class="featured-item" onclick="location.href='/artworks/generative-piece-02.html'">
+            <img src="/images/generative-piece-02-thumb.jpg" alt="Generative Piece 02">
+            <p>Generative Dreamscape 2</p>
+        </div>
+        <div class="featured-item" onclick="location.href='/artworks/animation-piece-02.html'">
+            <img src="/images/animation-piece-02-thumb.jpg" alt="Animation Piece 02">
+            <p>Animation Loop 2</p>
+        </div>
+        <!-- Repeat similar divs for more items -->
+    </div>
 
- </p> </h4>
+    <!-- Button to Gallery -->
+    <section class="see-more">
+        <button onclick="location.href='/gallery.html'">See More Artworks ↓</button>
     </section>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="content-section">
-        <h2>Hiya!</h2>
-        <h3>Feel free to reach out :) </h3>
-        
-        <h4> Email: <a href="mailto:your-email@example.com">athalleck@knox.edu</a></h4>
-    </section>
-    
-    <script>
-    function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
+<!-- About Section -->
+<section id="about" class="content-section">
+    <h3>Artist Statement</h3>
+    <p>Artist Statement. <a href="artist-statement.html">Read more</a></p>
 
-    function goToArtwork(id) {
-        window.location.href = `/artworks/${id}`;
-    }
-</script>
+    <h3>More Writings</h3>
+    <ul>
+        <li><a href="artist-statement.html">Artist Statement</a></li>
+        <li><a href="process-notes.html">Process Notes</a></li>
+        <li><a href="reflections.html">Reflections on Generative Art</a></li>
+    </ul>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="content-section">
+    <h2>Hiya!</h2>
+    <h3>Feel free to reach out :)</h3>
+    <h4>Email: <a href="mailto:athalleck@knox.edu">athalleck@knox.edu</a></h4>
+</section>
 
 </body>
 </html>
