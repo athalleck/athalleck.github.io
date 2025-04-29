@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - ATH</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">ATH</div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Categories to Filter -->
+    <section class="categories">
+        <button onclick="filterGallery('all')">All</button>
+        <button onclick="filterGallery('generative')">Generative</button>
+        <button onclick="filterGallery('digital')">Digital</button>
+        <button onclick="filterGallery('animation')">Animation</button>
+        <button onclick="filterGallery('painting')">Painting</button>
+        <button onclick="filterGallery('sculpture')">Sculpture</button>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-grid" id="gallery-grid">
+        <a href="/artworks/generative-piece-02.html" class="gallery-item">
+            <img src="/images/generative-piece-02-thumb.jpg" alt="Generative Piece 02">
+            <p>Generative Dreamscape 2</p>
+        </a> 
+        <a href="/artworks/generative-piece-01.html" class="gallery-item">
+            <img src="/images/generative-piece-01-thumb.jpg" alt="Generative Piece 01">
+            <p>Generative Dreamscape 1</p>
+        </a> 
+        <!-- Add more artworks with appropriate category classes -->
+    </section>
+
+</main>
+
+<script>
+// Filter by category
+function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+        if (category === 'all') {
+            item.style.display = 'block';
+        } else {
+            if (item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+}
+</script>
+
+</body>
+</html>
