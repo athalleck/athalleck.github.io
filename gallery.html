@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - ATH</title>
+  <link rel="stylesheet" href="gallery.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Luckiest+Guy&family=Megrim&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="logo">ATH</div>
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/gallery.html">Gallery</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="content-wrapper">
+<aside class="sidebar">
+    <div class="sidebar-header">
+    All Works
+  </div>
+  <nav>
+    <ul>
+    <li><a href="drawing-machine.html" class="drawing-machine-link">Drawing Machine</a></li>
+      <li><a href="/projects/self-portrait.html" class="self-portrait-link">Self Portrait?</a></li>
+      <li><a href="/projects/MTU.html">Mixing Things Up</a></li>
+      <li><a href="/projects/MTU.html">Misc Creative Coding</a></li>
+      <li><a href="/projects/MTU.html">Early Work</a></li>
+      <li><a href="/projects/MTU.html">Code</a></li>
+
+      <!-- add more projects here -->
+    </ul>
+  </nav>
+</aside>
+
+
+    <section class="gallery-grid" id="gallery-grid">
+      <!-- Gallery items inserted by JS -->
+    </section>
+  </div>
+</main>
+
+
+<!-- PapaParse for reading CSV -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<script>
+  console.log("JS is running!");
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  // Define layout patterns for visually full rows
+const layoutPatterns = [
+  // 2-item layouts for contrast
+  ['large-top', 'tall-bottom'],
+  ['medium-wide', 'large-bottom'],
+  ['tall-top', 'medium'],
+  ['medium', 'tall-bottom'],
+
+  // Balanced 3-item layouts
+  ['medium', 'medium', 'medium'],
+  ['medium-wide', 'medium', 'medium'],
+  ['medium', 'medium-wide', 'medium'],
+  ['medium', 'medium', 'medium-wide'],
+
+  // Imbalanced 3-item layouts
+  ['large-top', 'medium', 'small'],
+  ['medium', 'tall-top', 'medium'],
+  ['tall-bottom', 'medium', 'small'],
+  ['small', 'large-bottom', 'small'],
+
+  // Stacked / vertical vibes
+  ['stack-top', 'stack-bottom', 'medium'],
+  ['medium', 'stack-top', 'stack-bottom'],
+  ['tall-top', 'stack-bottom', 'medium'],
+
+  // Denser 4-item patterns
+['large-top', 'large-bottom'],
+['medium-wide', 'tall-bottom'],
+['tall-top', 'tall-bottom'],
+['large-top', 'medium', 'tall-bottom'],
+
+
+  // Dramatic duos
+  ['large-top', 'large-bottom'],
+  ['tall-top', 'tall-bottom'],
+  ['medium-wide', 'tall-bottom'],
+
+  // Slightly chaotic patterns
+  ['tall-bottom', 'medium-wide', 'small', 'medium'],
+  ['medium', 'small', 'medium-wide', 'tall-top'],
+];
+
+
+  Papa.parse('art/art.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+      console.log("CSV loaded!", results);
+      const gallery = document.getElementById('gallery-grid');
+      const data = results.data.filter(row => row.path && row.name);
+      shuffleArray(data); // Randomize image order
+
+      let index = 0;
+
+      while (index < data.length) {
+        const pattern = layoutPatterns[Math.floor(Math.random() * layoutPatterns.length)];
+
+        for (let i = 0; i < pattern.length && index < data.length; i++, index++) {
+          const item = data[index];
+          const size = pattern[i];
+
+          const container = item.link ? document.createElement('a') : document.createElement('div');
+          container.className = `gallery-item ${size}`;
+
+          if (item.link) {
+            container.href = item.link;
+            container.target = "_blank";
+          }
+
+          const img = document.createElement('img');
+          img.src = item.path;
+          img.alt = item.name;
+
+          const caption = document.createElement('p');
+          caption.textContent = item.caption || '';
+
+          container.appendChild(img);
+          container.appendChild(caption);
+          gallery.appendChild(container);
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

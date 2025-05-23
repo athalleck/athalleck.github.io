@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <div class="logo">ATH</div>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/gallery.html">Work</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="contact.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Shadows+Into+Light&display=swap" rel="stylesheet">  
+</head>
+<body>
+
+  <div class="contact-container">
+    <div class="contact-left">
+      <img src="Website Images/6 - Copy.png" alt="Contact background" />
+        <div class="artwork-detail">
+            <h2><em>Self Portrait?</em> (2024)</h2>
+            <p>ATH</p>
+            <p>Experimental Abstracted Portraiture, a series created using p5.js, capturing still shots from live webcam footage.</p>
+        </div>
+    </div>
+
+    <div class="contact-right">
+      <h1>Contact Me</h1>
+      <h2>Messages welcome. Carrier pigeons too.</h2>
+
+      <form class="contact-form" action="https://formspree.io/f/xyzwoprd" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thank You Popup -->
+  <div id="thank-you-popup">
+    <div id="thank-you-image"></div>
+    <div id="thank-you-content">
+      <p id="thank-you-message"></p>
+      <button onclick="closePopup()">close ✿</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const images = [
+      'artworks/typostcards/pc1.png',
+      'artworks/typostcards/pc2.png',
+      'artworks/typostcards/pc3.png',
+      'artworks/typostcards/pc4.png',
+      'artworks/typostcards/pc5.png',
+      'artworks/typostcards/pc6.png',
+      'artworks/typostcards/pc7.png',
+      'artworks/typostcards/pc8.png',
+      'artworks/typostcards/pc9.png'
+    ];
+
+    const messages = [
+      "Your message is part of the system now; a little triangle in the flowfield. I’ll respond once it completes a few orbits.",
+      "Thanks for reaching out! Your note just entered the randomness — my reply is being sculpted by code and curiosity.",
+      "Thanks! I fed your message into the algorithm, it’s rendering something wonderful. I’ll send a reply in a couple of thoughtful cycles.",
+      "Message received! It’s become a particle in my process, I’ll send a response once it settles into the canvas.",
+      "Your words are now part of the art; stitched into the code, looping gently. I’ll reply after a few beautiful iterations."
+    ];
+
+    function showThankYouPopup() {
+      const image = images[Math.floor(Math.random() * images.length)];
+      const message = messages[Math.floor(Math.random() * messages.length)];
+
+      document.getElementById("thank-you-image").style.backgroundImage = `url(${image})`;
+      document.getElementById("thank-you-message").textContent = message;
+      document.getElementById("thank-you-popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("thank-you-popup").style.display = "none";
+    }
+
+    const form = document.querySelector("form");
+    if (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            form.reset();
+            showThankYouPopup();
+          } else {
+            alert("Oops! There was a problem submitting your form");
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

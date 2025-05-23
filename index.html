@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATH Artist Portfolio</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Shadows+Into+Light&display=swap" rel="stylesheet">  
 </head>
 <body>
 
@@ -15,75 +16,59 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+
         </ul>
     </nav>
 </header>
-    
-     <!-- Home Section -->
-    <section id="home" class="content-section">
-        <div class="home-text">
-            <h1>ALEX HALLECK</h1>
-            <p>PORTFOLIO</p>
-        </div>
-    </section>
-    
-   <!-- Work Section -->
-<section id="work" class="content-section">
-    <div class="sidebar">
-        <button onclick="goToArtwork('digital')">Digital</button>
-        <button onclick="goToArtwork('generative')">Generative</button>
-        <button onclick="goToArtwork('animation')">Animation</button>
-        <button onclick="goToArtwork('physical')">Physical</button>
 
-    </div>
-    <div class="gallery">
-        <div id="digital" class="gallery-item" onclick="goToArtwork('digital')">Digital</div>
-        <div id="generative" class="gallery-item" onclick="goToArtwork('generative')">Generative</div>
-        <div id="animation" class="gallery-item" onclick="goToArtwork('animation')">Animation</div>
-        <div id="physical" class="gallery-item" onclick="goToArtwork('physical')">Physical</div>
-
+<!-- Home Section -->
+<section id="home" class="content-section">
+    <div class="home-text">
+        <h1>ALEX HALLECK</h1>
+        <p>PORTFOLIO</p>
     </div>
 </section>
-    
-    <!-- About Section -->
-    <section id="about" class="content-section">
-        <h3>Artist Statement: </h3>
-       <h4> <p> In my exploration of generative art and animation, I aim to disorient and disrupt the viewer from traditional storytelling. Through experimentation, I move my work beyond the conventions of linear narrative. Playing with the world of animation through generative art, I use code as the medium for my art. 
- </p>
-        
-        <p>Experimentation is at the core of my practice, as I constantly seek new ways to transform my animations into something unexpected. I embrace ambiguity and exaggerate absurdity, combining the generative, the digital, and the physical art. </p>
 
-<p>When I begin writing the code for my art, I go into it with a clear idea of what I want the computer to produce, but once I get further into the process, there is no direct need to reach that goal. I want to discover unexpected behaviors or adapt my code to do unpredictable things, where small changes to the code can create significant visual diversity within the art. My process is continuous, exploratory, and never complete. 
-</p>
+<!-- Featured Works Section -->
+<section id="featured-works" class="content-section">
+  <div class="fun-bar-container">
+    <div class="line left-line"></div>
+    <h2 class="fun-bar">
+      <span>F</span><span>E</span><span>A</span><span>T</span><span>U</span><span>R</span><span>E</span><span>D</span>
+      &nbsp;
+      <span>W</span><span>O</span><span>R</span><span>K</span><span>S</span>
+    </h2>
+    <div class="line right-line"></div>
+  </div>
+</section>
 
-<p>I include chance elements to guide my art, infusing it with unpredictability. I will never get the same outcome twice. This approach leads to an ongoing series of discoveries, both for myself and for the audience.
-</p>
+  <!-- Row of Three Featured Boxes -->
+  <div class="featured-row">
+    <div class="featured-box"></div>
+    <div class="featured-box"></div>
+    <div class="featured-box"></div>
+  </div>
 
-<p>As an animator, my ultimate goal is to create work that challenges the boundaries of realism and surrealism. I strive to be surprising and thought-provoking, forcing the viewer to find their own meanings and connections to the work and showing how generative art can interact and reflect the world around us.
+  <!-- Grid of Small Thumbnails -->
+  <div class="thumbnail-grid">
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+    <div class="thumbnail-box"></div>
+  </div>
 
- </p> </h4>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="content-section">
-        <h2>Hiya!</h2>
-        <h3>Feel free to reach out :) </h3>
-        
-        <h4> Email: <a href="mailto:your-email@example.com">athalleck@knox.edu</a></h4>
-    </section>
-    
-    <script>
-    function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function goToArtwork(id) {
-        window.location.href = `/artworks/${id}`;
-    }
-</script>
+  <!-- See More Button -->
+  <div class="see-more">
+    <button onclick="location.href='gallery.html'">See More Artworks</button>
+  </div>
+</section>
 
 </body>
 </html>

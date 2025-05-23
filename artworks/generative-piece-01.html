@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Dreamscape 1 - ATH</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../p5.min.js"></script>
+    <script src="../artworks/generative-piece-01.js"></script> <!-- Your p5.js file -->
+</head>
+<body>
+
+<header>
+    <div class="logo">ATH</div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- p5.js sketch will appear here -->
+<main>
+    <div id="p5-container"></div>
+
+    <!-- Still shots -->
+    <section class="still-shots">
+        <img src="../images/still-01.jpg" alt="Still 1">
+        <img src="../images/still-02.jpg" alt="Still 2">
+        <img src="../images/still-03.jpg" alt="Still 3">
+        <!-- Add more still shots as needed -->
+    </section>
+</main>
+
+<script>
+new p5(generativeSketch, 'p5-container'); // You define 'generativeSketch' in your p5.js file
+</script>
+
+</body>
+</html>
