@@ -191,75 +191,99 @@ header nav ul li a:hover {
   scroll-margin-top: 80px;
 }
 
-
-/* Top large boxes container */
-.featured-large-grid {
+/* Featured Row */
+.featured-row {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
   gap: 20px;
 }
 
-/* Individual large boxes */
-.featured-large-box {
-  flex: 1 1 30%;
+.featured-box {
+  position: relative;          /* Needed for slider positioning */
+  flex: 1 1 45%;
+  min-height: 50vh;   
+  max-height:80vh;        /* Ensure boxes have height */
   background-color: #eee;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  border: 5px solid #000000; /* Added border for visible outline */
+  border: 2px solid #000;
 }
 
-.featured-large-box img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px 12px 0 0;
-  flex-grow: 1;
+/* Canvas fills the box */
+.featured-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
 
-.featured-large-box p {
-  margin: 15px;
-  font-size: 1.1em;
-  color: #333;
-}
-
-/* Middle grid of smaller thumbnails */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin: 0 auto 40px;
-  max-width: 1200px;
-}
-
-.featured-thumbnail {
-  background-color: #ddd;
+/* Sliders container */
+#controls {
+  position: absolute;          /* Positioned relative to featured-box */
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
   border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  border: 2px solid #ccc; /* Added border for visible outline */
+  color: #fff;
+  font-family: monospace;
+  z-index: 1000;
 }
 
-.featured-thumbnail img {
+/* Fixed 7x7 Grid Layout */
+.thumbnail-grid {
+  display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-template-rows: repeat(7, 1fr);
+grid-column-gap: 15px;
+grid-row-gap: 15px;
+margin-top: 5vh;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 3; }
+.div2 { grid-area: 1 / 3 / 4 / 5; }
+.div3 { grid-area: 1 / 5 / 4 / 8; }
+.div4 { grid-area: 2 / 1 / 4 / 3; }
+.div5 { grid-area: 4 / 1 / 6 / 5; }
+.div6 { grid-area: 4 / 6 / 5 / 8; }
+.div7 { grid-area: 4 / 5 / 7 / 6; }
+.div8 { grid-area: 5 / 6 / 7 / 8; }
+.div9 { grid-area: 6 / 1 / 8 / 2; }
+.div10 { grid-area: 6 / 2 / 8 / 5; }
+.div11 { grid-area: 7 / 5 / 8 / 8; }
+
+/* Ensure images fill their boxes */
+.thumbnail-grid div img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
+  border-radius: 8px; /* optional */
 }
 
-.featured-thumbnail:hover {
+.thumbnail-box:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
+
+/* See More Button */
+.see-more {
+  margin-top: 20px;
+}
+.see-more button {
+  padding: 15px 35px;
+  font-size: 1.1em;
+  background-color: #5b8eb8;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.see-more button:hover {
+  background-color: #9dc6da;
+}
+
+/* "See More" Button */
 
 .see-more-button {
   position: fixed;

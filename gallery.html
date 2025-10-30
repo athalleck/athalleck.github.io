@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery - ATH</title>
   <link rel="stylesheet" href="gallery.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Luckiest+Guy&family=Megrim&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Londrina+Sketch&family=Luckiest+Guy&family=Megrim&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,16 +25,35 @@
 
 <main class="container">
   <div class="content-wrapper">
+
+<aside class="control-sidebar">
+  <!-- Toggle main sidebar -->
+  <button class="control-btn" id="toggle-main-sidebar" aria-label="Toggle All Works">
+    <!-- Placeholder square icon -->
+    <div class="icon"></div>
+  </button>
+
+  <!-- Other buttons can go here -->
+  <button class="control-btn" aria-label="About Section">
+    <div class="icon"></div>
+  </button>
+  <button class="control-btn" aria-label="Code Section">
+    <div class="icon"></div>
+  </button>
+</aside>
+
+
 <aside class="sidebar">
-    <div class="sidebar-header">
-    All Works
-  </div>
+<div class="sidebar-header">
+  All Works
+
+</div>
   <nav>
     <ul>
     <li><a href="drawing-machine.html" class="drawing-machine-link">Drawing Machine</a></li>
       <li><a href="/projects/self-portrait.html" class="self-portrait-link">Self Portrait?</a></li>
-      <li><a href="/projects/MTU.html">Mixing Things Up</a></li>
-      <li><a href="/projects/MTU.html">Misc Creative Coding</a></li>
+      <li><a href="/projects/MTU.html" class = "mixing-things-up-link">Mixing Things Up</a></li>
+      <li><a href="/projects/MTU.html" class = "misc-work-link">Misc Work</a></li>
       <li><a href="/projects/MTU.html">Early Work</a></li>
       <li><a href="/projects/MTU.html">Code</a></li>
 
@@ -57,77 +76,89 @@
 <script>
   console.log("JS is running!");
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
+  // --- Seeded random generator for consistent pseudo-randomness ---
+  function seededRandom(seed) {
+    let x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
   }
 
-  // Define layout patterns for visually full rows
-const layoutPatterns = [
-  // 2-item layouts for contrast
-  ['large-top', 'tall-bottom'],
-  ['medium-wide', 'large-bottom'],
-  ['tall-top', 'medium'],
-  ['medium', 'tall-bottom'],
+  // --- Fisher-Yates shuffle using a seed (deterministic) ---
+  function seededShuffle(array, seed = 12345) {
+    const result = array.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom(seed + i) * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
 
-  // Balanced 3-item layouts
-  ['medium', 'medium', 'medium'],
-  ['medium-wide', 'medium', 'medium'],
-  ['medium', 'medium-wide', 'medium'],
-  ['medium', 'medium', 'medium-wide'],
-
-  // Imbalanced 3-item layouts
-  ['large-top', 'medium', 'small'],
-  ['medium', 'tall-top', 'medium'],
-  ['tall-bottom', 'medium', 'small'],
-  ['small', 'large-bottom', 'small'],
-
-  // Stacked / vertical vibes
-  ['stack-top', 'stack-bottom', 'medium'],
-  ['medium', 'stack-top', 'stack-bottom'],
-  ['tall-top', 'stack-bottom', 'medium'],
-
-  // Denser 4-item patterns
-['large-top', 'large-bottom'],
-['medium-wide', 'tall-bottom'],
-['tall-top', 'tall-bottom'],
-['large-top', 'medium', 'tall-bottom'],
-
-
-  // Dramatic duos
-  ['large-top', 'large-bottom'],
-  ['tall-top', 'tall-bottom'],
-  ['medium-wide', 'tall-bottom'],
-
-  // Slightly chaotic patterns
-  ['tall-bottom', 'medium-wide', 'small', 'medium'],
-  ['medium', 'small', 'medium-wide', 'tall-top'],
-];
-
+  // --- Layout patterns (same as before) ---
+  const layoutPatterns = [
+    ['large-top', 'tall-bottom'],
+    ['medium-wide', 'large-bottom'],
+    ['tall-top', 'medium'],
+    ['medium', 'tall-bottom'],
+    ['medium', 'medium', 'medium'],
+    ['medium-wide', 'medium', 'medium'],
+    ['medium', 'medium-wide', 'medium'],
+    ['medium', 'medium', 'medium-wide'],
+    ['large-top', 'medium', 'small'],
+    ['medium', 'tall-top', 'medium'],
+    ['tall-bottom', 'medium', 'small'],
+    ['small', 'large-bottom', 'small'],
+    ['stack-top', 'stack-bottom', 'medium'],
+    ['medium', 'stack-top', 'stack-bottom'],
+    ['tall-top', 'stack-bottom', 'medium'],
+    ['large-top', 'large-bottom'],
+    ['medium-wide', 'tall-bottom'],
+    ['tall-top', 'tall-bottom'],
+    ['large-top', 'medium', 'tall-bottom'],
+    ['tall-bottom', 'medium-wide', 'small', 'medium'],
+    ['medium', 'small', 'medium-wide', 'tall-top'],
+  ];
 
   Papa.parse('art/art.csv', {
     download: true,
     header: true,
     complete: function(results) {
       console.log("CSV loaded!", results);
-      const gallery = document.getElementById('gallery-grid');
       const data = results.data.filter(row => row.path && row.name);
-      shuffleArray(data); // Randomize image order
+      const gallery = document.getElementById('gallery-grid');
 
+      // --- 1️⃣ Group by category ---
+      const groups = {};
+      for (const item of data) {
+        const cat = item.category ? item.category.toLowerCase() : 'misc';
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(item);
+      }
+
+      // --- 2️⃣ Seeded shuffle within each category ---
+      const seed = 9999;
+      for (const cat in groups) {
+        groups[cat] = seededShuffle(groups[cat], seed + cat.length);
+      }
+
+      // --- 3️⃣ Evenly interleave categories ---
+      const categories = Object.keys(groups);
+      const maxLen = Math.max(...categories.map(c => groups[c].length));
+      const interleaved = [];
+      for (let i = 0; i < maxLen; i++) {
+        for (const cat of categories) {
+          if (groups[cat][i]) interleaved.push(groups[cat][i]);
+        }
+      }
+
+      // --- 4️⃣ Render using consistent layout cycling ---
       let index = 0;
-
-      while (index < data.length) {
-        const pattern = layoutPatterns[Math.floor(Math.random() * layoutPatterns.length)];
-
-        for (let i = 0; i < pattern.length && index < data.length; i++, index++) {
-          const item = data[index];
+      while (index < interleaved.length) {
+        const pattern = layoutPatterns[index % layoutPatterns.length];
+        for (let i = 0; i < pattern.length && index < interleaved.length; i++, index++) {
+          const item = interleaved[index];
           const size = pattern[i];
 
           const container = item.link ? document.createElement('a') : document.createElement('div');
           container.className = `gallery-item ${size}`;
-
           if (item.link) {
             container.href = item.link;
             container.target = "_blank";
@@ -148,6 +179,31 @@ const layoutPatterns = [
     }
   });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("toggle-sidebar");
+  const sidebar = document.querySelector(".sidebar");
+  const container = document.querySelector(".container");
+
+  toggleButton.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    container.classList.toggle("sidebar-collapsed");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("toggle-main-sidebar");
+  const sidebar = document.querySelector(".sidebar");
+  const container = document.querySelector(".container");
+
+  toggleButton.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    container.classList.toggle("sidebar-collapsed");
+  });
+});
+</script>
+
 
 </body>
 </html>

@@ -41,6 +41,12 @@ header nav ul li a {
   color:#7aa8f3
 }
 
+.mixing-things-up-link {
+  font-family: 'Londrina+Sketch', regular;
+  font-weight: normal; /* or 400 */
+  color:#000000
+}
+
 header nav ul li a:hover {
   background-color: #555;
   border-radius: 5px;
@@ -123,10 +129,10 @@ body {
 .container {
   display: flex;
   padding-top: 70px;
-  margin-left: var(--sidebar-width);
+  margin-left: calc(var(--sidebar-width) + 60px); 
+  transition: margin-left 0.4s ease;
   overflow-x: hidden;
 }
-
 
 .content-wrapper {
   display: flex;
@@ -148,10 +154,9 @@ body {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   box-sizing:border-box;
 }
-
 
 .gallery-item p {
   position: absolute;
@@ -167,7 +172,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none; /* avoids hover flicker */
-  text-align: center;
+  text-align: left;
   border-radius: 6px;
 }
 
@@ -175,10 +180,10 @@ body {
   opacity: 1;
 }
 
-
 .gallery-item img {
   width: 100%;
   height: auto;
+  max-height: 85vh;
   object-fit: contain;
   display: block;
   border-radius: 8px 8px 0 0;
@@ -196,6 +201,144 @@ body {
 @media (max-width: 768px) {
   .gallery-grid {
     column-count: 1;  /* stack all images in 1 column */
+  }
+}
+
+/* === SIDEBAR TOGGLE === */
+
+/* Make room for animation and collapse */
+.sidebar {
+  transition: width 0.4s ease, opacity 0.4s ease;
+  will-change: width;
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 60px;
+  opacity: 0.95;
+}
+
+/* Adjust gallery container when sidebar shrinks */
+.container.sidebar-collapsed {
+  margin-left: 60px;
+  transition: margin-left 0.4s ease;
+}
+
+/* Sidebar header with toggle button */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #000;
+  padding: 0.5rem 0;
+  margin-bottom: 1.2rem;
+  position: relative;
+  top: -50px;
+}
+
+/* --- Toggle button --- */
+#toggle-sidebar {
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+#toggle-sidebar:hover {
+  background: #f1f1f1;
+  transform: scale(1.08);
+}
+
+/* SVG icon (arrow) */
+#toggle-sidebar svg {
+  width: 16px;
+  height: 16px;
+  stroke: #000;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when collapsed */
+.sidebar.collapsed #toggle-sidebar svg {
+  transform: rotate(180deg);
+}
+
+/* === CONTROL SIDEBAR === */
+.control-sidebar {
+  position: fixed;
+  top: 57px; /* below header */
+  left: 0;
+  width: 60px;
+  height: calc(100vh - 50px);
+  background: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  background: #bbb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  background: #999;
+}
+
+.control-btn .icon {
+  width: 20px;
+  height: 20px;
+  background: #555; /* placeholder icon color */
+  border-radius: 3px;
+}
+
+/* Shift main sidebar to the right of control sidebar */
+.sidebar {
+  left: 60px; /* width of control sidebar */
+  transition: transform 0.4s ease;
+}
+
+/* When collapsed, slide main sidebar left */
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Adjust gallery container when sidebar collapsed */
+.container.sidebar-collapsed {
+  margin-left: 60px; /* only the control sidebar visible */
+  transition: margin-left 0.4s ease;
+}
+
+/* On smaller screens, always expand both sidebars */
+@media (max-width: 768px) {
+  .sidebar,
+  .control-sidebar {
+    transform: none !important;
+    left: 0;
+  }
+  .container,
+  .container.sidebar-collapsed {
+    margin-left: calc(var(--sidebar-width) + 60px);
   }
 }
 

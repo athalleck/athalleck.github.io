@@ -1,0 +1,179 @@
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #333;
+  padding: 15px 30px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+}
+
+header nav ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Body */
+body {
+  font-family: 'Shadows Into Light', cursive;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
+}
+
+/* Main container */
+#drawing-machine {
+  max-width: 1000px;
+  margin: 80px auto 0 auto; /* margin-top to avoid fixed header */
+  font-family: 'Megrim', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  padding: 0 1rem;
+}
+
+/* Version selector buttons */
+#version-selector button {
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  background: #eee;
+}
+
+/* Flex container for canvas + controls */
+#drawing-machine-area {
+  display: flex;
+  gap: 1rem;       /* space between canvas and sliders */
+  justify-content: center; /* center the whole area horizontally */
+  align-items: flex-start; /* align top edges */
+  margin: 1rem 0;
+}
+
+/* Canvas container */
+#drawing-machine-canvas {
+  width: 80vw;       /* 80% of viewport width */
+  height: 50vh;      /* 50% of viewport height */
+  border: 2px solid #333;  /* optional to see the box */
+  background-color: #ddd;   /* optional so the canvas is visible */
+  margin: 1rem auto;        /* center horizontally with margin */
+  position: relative;
+}
+
+#controls {
+  display: flex;
+  justify-content: center; /* center below canvas */
+  padding: 8px;
+  gap: 10px;
+  margin-top: 1rem; /* spacing from canvas */
+  background: rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
+
+#controls input[type="range"] {
+  width: 120px;
+  height: 6px;
+}
+
+#controls p {
+  font-size: 20px;
+  margin: 2px 0;
+  font-weight: bold;
+}
+
+#controls div {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* label + slider spacing */
+}
+
+
+/* Description below canvas */
+#description {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+/* Gallery container - Pinterest-style masonry */
+#gallery {
+  column-count: 4;          /* default number of columns */
+  column-gap: 15px;         /* space between columns */
+  width: 100vw;             /* stretch full width of viewport */
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  margin-left: calc(-50vw + 50%); /* cancel out container centering */
+
+}
+
+/* Gallery items */
+#gallery img {
+  display: inline-block;    /* required for column layout */
+  width: 100%;              /* fill column width */
+  margin-bottom: 15px;      /* space between images vertically */
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+#gallery img:hover {
+  transform: scale(1.03);
+  border-color: #888;
+}
+
+/* Responsive column counts */
+@media (max-width: 1200px) {
+  #gallery {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 800px) {
+  #gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  #gallery {
+    column-count: 1;
+  }
+}
+
+
+/* Buttons container */
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+#buttons button,
+#buttons a {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  background: #eee;
+  text-decoration: none;
+  color: #000;
+}

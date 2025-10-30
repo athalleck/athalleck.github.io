@@ -43,32 +43,69 @@
     </h2>
     <div class="line right-line"></div>
   </div>
-</section>
 
-  <!-- Row of Three Featured Boxes -->
+  <!-- Row of Two Featured Boxes -->
   <div class="featured-row">
-    <div class="featured-box"></div>
-    <div class="featured-box"></div>
-    <div class="featured-box"></div>
+    <div class="featured-box" id="vcdm"></div>
+    <div class="featured-box" id="interwork"></div>
   </div>
 
   <!-- Grid of Small Thumbnails -->
-  <div class="thumbnail-grid">
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
-    <div class="thumbnail-box"></div>
+<div class="thumbnail-grid">
+  <div class="thumbnail-box div1" id="feat1">
+    <img src="art/self_portrait/6.png" alt="Self Portrait? #6">
   </div>
+  <div class="thumbnail-box div2" id="feat2">
+    <img src="art/The_Drawing_Machine/Version_1/123.png" alt="The Drawing Machine V1 #123">
+  </div>
+  <div class="thumbnail-box div3" id="feat3">
+    <img src="art/The_Drawing_Machine/Version_3/022.png" alt="The Drawing Machine V3 #022">
+  </div>
+  <div class="thumbnail-box div4" id="feat4">
+    <img src="art/The_Drawing_Machine/Version_5/003.png" alt="The Drawing Machine V5 #003">
+  </div>
+  <div class="thumbnail-box div5" id="feat5">
+    <img src="art/self_portrait/31.png" alt="Self Portrait? #31">
+  </div>
+  <div class="thumbnail-box div6" id="feat6">
+    <img src="art/The_Drawing_Machine/Version_5/029.png" alt="The Drawing Machine V5 #029">
+  </div>
+  <div class="thumbnail-box div7" id="feat7">
+    <img src="art/The_Drawing_Machine/Version_5/013.png" alt="The Drawing Machine V5 #013">
+  </div>
+  <div class="thumbnail-box div9" id="feat9">
+    <img src="art/Mixing_Things_Up/009.png" alt="Mixing Things Up #009">
+  </div>
+  <div class="thumbnail-box div8" id="feat8">
+    <img src="art/self_portrait/12.png" alt="Self Portrait? #12">
+</div>
+  <div class="thumbnail-box div10" id="feat10">
+    <img src="art/The_Drawing_Machine/Version_2/008.png" alt="The Drawing Machine V2 #008">
+  </div>
+  <div class="thumbnail-box div11" id="feat11">
+    <img src="art/Mixing_Things_Up/003.png" alt="Mixing Things Up #003">
+  </div>
+</div>
+
 
   <!-- See More Button -->
   <div class="see-more">
     <button onclick="location.href='gallery.html'">See More Artworks</button>
   </div>
+
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+
+<script src="sketches/interwork.js"></script>
+<!-- Load vcdm.js -->
+<script src="sketches/vcdm.js"></script>
+<script>
+  // Create a p5 instance and attach it to the featured box with id="vcdm"
+  new p5(agentSketch('vcdm'));
+</script>
+
+
 
 </body>
 </html>

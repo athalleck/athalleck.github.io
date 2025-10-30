@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Drawing Machine - ATH</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Londrina+Sketch&family=Luckiest+Guy&family=Megrim&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="drawing-machine.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">ATH</div>
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/gallery.html">Gallery</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="drawing-machine">
+  <h1>The Drawing Machine</h1>
+
+  <!-- Version Selector -->
+  <div id="version-selector">
+    <button data-version="7">V.7</button>
+    <button data-version="6">V.6</button>
+    <button data-version="5">V.5</button>
+    <button data-version="4">V.4</button>
+    <button data-version="3A">V.3 A</button>
+    <button data-version="3">V.3</button>
+    <button data-version="2">V.2</button>
+    <button data-version="1B">V.1 B</button>
+    <button data-version="1A">V.1 A</button>
+    <button data-version="1">V.1</button>
+  </div>
+
+  <!-- Canvas + Sliders Container -->
+  <div id="drawing-machine-area">
+    <div id="drawing-machine-canvas"></div>
+  </div>
+
+  <div id="controls"></div>
+
+
+  <!-- Description -->
+  <div id="description">
+    <p id="desc-text"></p>
+  </div>
+
+  <!-- Gallery -->
+  <div id="gallery"></div>
+
+  <!-- Buttons -->
+  <div id="buttons">
+    <button id="scroll-top">↑ Back to Top</button>
+    <a id="see-code" href="#" target="_blank">See Code!</a>
+  </div>
+</main>
+
+<!-- p5.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+
+<script>
+  // --- Sketch Data ---
+  const sketches = {
+    "1": { description: "Version 1: The First Drawing Machine", images: ["v1_1.jpg","v1_2.jpg","v1_3.jpg"], codeLink: "sketches/v1/index.html", jsFile: "sketches/dmv1.js" },
+    "1A": { description: "Version 1A: Noise", images: ["v1_1.jpg","v1_2.jpg","v1_3.jpg"], codeLink: "sketches/v1/index.html", jsFile: "sketches/dmv1a.js" },
+    "1B": { description: "Version 1: The Noisy Drawing Machine", images: ["v1_1.jpg","v1_2.jpg","v1_3.jpg"], codeLink: "sketches/v1/index.html", jsFile: "sketches/dmv1b.js" },
+    "2": { description: "Version 2: Adding in Motion", images: ["v2_1.jpg","v2_2.jpg"], codeLink: "sketches/v2/index.html", jsFile: "sketches/dmv2.js" },
+    "3": { description: "Version 3: Motion and Color", images: ["v3_1.jpg","v3_2.jpg"], codeLink: "sketches/v3/index.html", jsFile: "sketches/dmv3.js" },
+    "3A": { description: "Version 3A: Color Changing Motion", images: ["v3_1.jpg","v3_2.jpg"], codeLink: "sketches/v3/index.html", jsFile: "sketches/dmv3a.js" },
+    "4": { description: "Version 4: Interactive lines...", images: ["v4_1.jpg","v4_2.jpg"], codeLink: "sketches/v4/index.html", jsFile: "sketches/v4.js" },
+    "5": { description: "Version 5: Colorful particles...", images: ["v5_1.jpg","v5_2.jpg"], codeLink: "sketches/v5/index.html", jsFile: "sketches/dmv5.js" },
+    "6": { description: "Version 6: Dynamic curves...", images: ["v6_1.jpg","v6_2.jpg"], codeLink: "sketches/v6/index.html", jsFile: "sketches/v6.js" },
+    "7": { description: "Version 7: Minimal shapes...", images: ["v7_1.jpg","v7_2.jpg"], codeLink: "sketches/v7/index.html", jsFile: "sketches/dmv7.js" }
+  };
+
+  let currentSketchInstance = null;
+
+  // Dynamically load sketch JS file, then instantiate
+  function loadSketch(version) {
+    const s = sketches[version];
+
+    // Remove previous p5 sketch
+    if (currentSketchInstance) {
+      currentSketchInstance.remove();
+      currentSketchInstance = null;
+    }
+
+    // Clear canvas and controls
+    document.getElementById("drawing-machine-canvas").innerHTML = "";
+    document.getElementById("controls").innerHTML = "";
+
+    // Highlight active button
+    document.querySelectorAll("#version-selector button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.version == version);
+    });
+
+    // Update description, gallery, code link
+    document.getElementById("desc-text").textContent = s.description;
+    document.getElementById("see-code").href = s.codeLink;
+
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+    s.images.forEach(img => {
+      const i = document.createElement("img");
+      i.src = `images/${img}`;
+      gallery.appendChild(i);
+    });
+
+    // Remove old script if exists
+    const oldScript = document.getElementById("version-script");
+    if (oldScript) oldScript.remove();
+
+    // Load sketch JS file dynamically
+    const script = document.createElement("script");
+    script.src = s.jsFile;
+    script.id = "version-script";
+    script.onload = () => {
+      // Instantiate p5 after JS file loads
+      currentSketchInstance = new p5(window[`sketch${version}`], "drawing-machine-canvas");
+    };
+    document.body.appendChild(script);
+  }
+
+  // Version buttons
+  document.querySelectorAll("#version-selector button").forEach(btn => {
+    btn.addEventListener("click", () => loadSketch(btn.dataset.version));
+  });
+
+  // Scroll to top
+  document.getElementById("scroll-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Load default version
+  loadSketch(7);
+
+// --- CSV-based Gallery Integration ---
+let csvImages = []; // all Drawing Machine images from CSV
+
+// Load CSV dynamically
+fetch("art/art.csv")
+  .then(res => res.text())
+  .then(data => {
+    const lines = data.trim().split("\n");
+    lines.forEach(line => {
+      const match = line.match(/([^,]+),([^,]+),"(.*)"/);
+      if (!match) return;
+
+      const filename = match[1].trim();
+      const path = match[2].trim();
+      const desc = match[3].trim();
+
+      if (!desc.toLowerCase().includes("drawing machine")) return;
+
+      const versionMatch = filename.match(/DM_V(\d+)_/);
+      if (versionMatch) {
+        const version = parseInt(versionMatch[1]);
+        csvImages.push({ filename, path, desc, version });
+      }
+    });
+
+    // Show gallery for default version AFTER CSV loads
+    updateGallery(); // no version filter yet, show all
+  });
+
+// Update gallery optionally filtered by version
+function updateGallery(filterVersion = null) {
+  const gallery = document.getElementById("gallery");
+  gallery.innerHTML = "";
+
+  csvImages.forEach(img => {
+    if (filterVersion && img.version !== filterVersion) return; // skip other versions
+    const i = document.createElement("img");
+    i.src = img.path;
+    i.alt = img.desc;
+    i.dataset.version = img.version;
+    gallery.appendChild(i);
+  });
+}
+
+// Connect gallery to version buttons
+document.querySelectorAll("#version-selector button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const version = parseInt(btn.dataset.version);
+    updateGallery(version); // filter gallery for clicked version
+  });
+});
+</script>
+
+</body>
+</html>
